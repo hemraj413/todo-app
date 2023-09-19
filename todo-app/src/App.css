@@ -1,0 +1,29 @@
+.App{
+    max-width: 100vw;
+    height: 100vh;
+}
+.background-img{
+    width: 100%;
+    height: auto;
+}
+main{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 2rem;
+    font-size: 25px;
+}
+.heading img{
+  
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
