@@ -9,11 +9,13 @@ export const TodosItem = ({completed,text,toggleCheck,isclicked,deleteTodo}) => 
 
      
         <input type="checkbox" 
+        className='todo-checkbox'
+
         checked={completed}
-        onClick={()=>toggleCheck()}
+        onChange={()=>toggleCheck()}
         
         />
-        <span >{text}</span>
+        <span >{text.length<25?text:text.substring(0,25)}</span>
         </div>
         <img src="./images/icon-cross.svg" style={isclicked?{display:"block"}:{display:"none"}} onClick={deleteTodo} alt="" />
     </div>

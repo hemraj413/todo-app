@@ -18,6 +18,7 @@ export const Todos = ({id}) => {
     function saveTodo(){
       if(todos.trim()!==""){
         const newTodo={
+          id: Date.now(),
           text:todos,
           checked :false,
       
@@ -68,7 +69,7 @@ export const Todos = ({id}) => {
   return (
     <div className='todos-comp ' id={id}>
         <section className='add-todo'>
-            <input type="text" placeholder='create new todo'
+            <input type="text" placeholder='create new todo' 
             value={todos}
             onChange={(e)=>setTodos( e.target.value) }
             
@@ -80,12 +81,12 @@ export const Todos = ({id}) => {
 
        
           {!showCompletedTodos? todosList.map((todo,index)=>(
-            <article>
+            <article key={index}>
           <TodosItem 
             text={todo.text}
             completed={todo.checked}
             toggleCheck={()=>toggleCheck(index)}
-            key={index} 
+            key={todo.id} 
             isclicked={true}
             deleteTodo={()=>deleteTodo(index)}
 
@@ -96,13 +97,13 @@ export const Todos = ({id}) => {
               text={todo.text}
               completed={todo.checked}
               toggleCheck={()=>toggleCheck(index)}
-              key={index}
+              key={todo.id}
               isclicked={false}
               deleteTodo={()=>deleteTodo(index)}
               
               />))}   </div>
           <div className='btn'>
-            <section>
+            <section className='item-left'>
             <p>{!showCompletedTodos? todosList.length: filteredTodos.length} items</p></section>
             <section>
             <button onClick={()=>allTodo()} className={btnActive==="all"?'active-btn':'just-btn'}>All</button>
@@ -110,7 +111,7 @@ export const Todos = ({id}) => {
             <button onClick={()=>completedTodos()} className={btnActive==="completed"?'active-btn':'just-btn'}>completed</button>
             
             </section>
-            <button onClick={()=> clearCompleted()} className='just-btn'>clear completed</button>
+            <button onClick={()=> clearCompleted()} className='just-btn clear-btn'>clear completed</button>
           </div>
           
 

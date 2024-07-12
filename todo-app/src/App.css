@@ -20,6 +20,7 @@ main{
     align-items: center;
     letter-spacing: 2rem;
     font-size: 25px;
+    margin-bottom: 3vh;
 }
 .heading img{
   
@@ -27,3 +28,14 @@ main{
     height: 50px;
     cursor: pointer;
 }
+@media screen and (max-width:600px){
+    main{
+        top: 50%;
+    }
+    .background-img{
+        height: 30vh;
+    }
+    
+}
+
+
